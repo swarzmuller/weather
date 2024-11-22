@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/weather': {
-        target: 'https://weather-test-mwmm.onrender.com/',
+        target: 'https://weather-server-a2ck.onrender.com/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/weather/, '/weather'),
       },
