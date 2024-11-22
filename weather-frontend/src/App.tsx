@@ -1,16 +1,23 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import { WeatherList } from "./components/WeatherList"
-import { WeatherForm } from "./components/WeatherForm"
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
+import { GlobalStyles } from "./globalStyles";
+import { WeatherHistory, WeatherSearch } from "./components";
 
 export const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/main" element={<WeatherForm />} />
-        <Route path="/list" element={<WeatherList />} />
-      </Routes>
-    </Router>
-  )
-}
-
-
+    <>
+      <GlobalStyles />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/main" replace />} />
+          <Route path="/main" element={<WeatherSearch />} />
+          <Route path="/list" element={<WeatherHistory />} />
+        </Routes>
+      </Router>
+    </>
+  );
+};
