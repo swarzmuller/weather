@@ -5,6 +5,8 @@ export const HistoryWrapper = css`
   align-items: flex-start;
   padding: 40px 0;
   gap: 34px;
+  max-width: 1180px;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     gap: 16px;

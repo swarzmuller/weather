@@ -1,23 +1,14 @@
-import {
-  Navigate,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AnimationProvider, PageTransitionWrapper } from "@/components";
 import { GlobalStyles } from "./globalStyles";
-import { WeatherHistory, WeatherSearch } from "./components";
 
 export const App = () => {
   return (
-    <>
+    <Router>
       <GlobalStyles />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Navigate to="/main" replace />} />
-          <Route path="/main" element={<WeatherSearch />} />
-          <Route path="/list" element={<WeatherHistory />} />
-        </Routes>
-      </Router>
-    </>
+      <AnimationProvider>
+        <PageTransitionWrapper />
+      </AnimationProvider>
+    </Router>
   );
 };

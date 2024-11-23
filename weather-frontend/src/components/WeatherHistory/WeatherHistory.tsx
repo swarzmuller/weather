@@ -1,15 +1,15 @@
-import { useLayoutEffect, useState } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AnimationContext, fetchHistory, Wrapper } from "@/components";
 import Arrow from "../assets/arrow.svg";
-import { fetchHistory } from "../api";
 import { WeatherItem } from "./components/WeatherItem";
-import { Wrapper } from "../WeatherSearch/styles";
 import { WeatherHistoryData } from "./types";
 import * as S from "./styles";
 
 export const WeatherHistory = () => {
   const [history, setHistory] = useState<WeatherHistoryData[]>([]);
   const [loading, setLoading] = useState(true);
+  const { setDirection } = useContext(AnimationContext);
   const loader = loading ? "loading" : "";
 
   useLayoutEffect(() => {
@@ -26,7 +26,11 @@ export const WeatherHistory = () => {
 
   return (
     <div css={[Wrapper, S.HistoryWrapper]}>
-      <Link css={S.BackLink} to="/main">
+      <Link
+        css={S.BackLink}
+        to="/main"
+        onClick={() => setDirection("backward")}
+      >
         <img src={Arrow} alt="Arrow" />
         Weather history
       </Link>
@@ -45,8 +49,7 @@ export const WeatherHistory = () => {
           ))}
         </ul>
       ) : (
-        // <div css={{ height: "100vh", width: "100%" }} className={loader}></div>
-        null
+        <div css={{ height: "100vh", width: "100%" }} className={loader}></div>
       )}
     </div>
   );

@@ -1,5 +1,6 @@
-import React, { useRef, useState, useLayoutEffect } from "react";
+import React, { useRef, useState, useLayoutEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AnimationContext } from "@/components";
 import { fetchWeather } from "../api";
 import { WeatherStatus } from "./components/WeatherStatus";
 import { weatherStatus } from "./helpers";
@@ -10,8 +11,9 @@ export const WeatherSearch = () => {
   const [weather, setWeather] = useState<Data>();
   const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const ref = useRef<null | HTMLInputElement>(null);
+  const { setDirection } = useContext(AnimationContext);
 
   const loader = loading ? "loading" : "";
   const image = weather?.weather[0].main
@@ -28,7 +30,7 @@ export const WeatherSearch = () => {
       .then((data) => {
         setWeather(data);
         setLoading(false);
-        setError('');
+        setError("");
         localStorage.setItem("cachedWeather", JSON.stringify(data));
       })
       .catch((error) => {
@@ -72,7 +74,11 @@ export const WeatherSearch = () => {
         />
         <button css={S.Button}>Submit</button>
         {error ? <p css={S.Error}>{error}</p> : null}
-        <Link css={S.ShowLink} to="/list">
+        <Link
+          onClick={() => setDirection("forward")}
+          css={S.ShowLink}
+          to="/list"
+        >
           Show history
         </Link>
       </form>

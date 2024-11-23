@@ -54,7 +54,7 @@ export const Place = css`
   font-size: 20px;
   font-weight: 700;
   color: #1c242b;
-  margin: 80px 0 16px;
+  margin: 72px 0 16px;
   text-align: center;
 
   @media (max-width: 768px) {
@@ -119,7 +119,7 @@ export const FormLabel = css`
 
 export const Input = css`
   width: 100%;
-  padding: 15px 12px;
+  padding: 12px;
   font-size: 14px;
   line-height: 14px;
   font-weight: 400;
@@ -128,11 +128,15 @@ export const Input = css`
   color: #1c242b;
   margin: 12px 0 20px;
   transition: 0.3s;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const Button = css`
   width: 100%;
-  padding: 16px 32px;
+  padding: 14px 32px;
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -152,7 +156,7 @@ export const ShowLink = css`
   line-height: 21px;
   color: #8e9aa7;
   text-decoration: underline;
-  margin-top: 50px;
+  margin-top: 44px;
 `;
 
 export const Error = css`

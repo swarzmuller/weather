@@ -1,17 +1,14 @@
-import { Weather } from "../WeatherSearch/types";
+import { Data, Weather } from "../WeatherSearch/types";
+
+export interface HistoryResponse {
+  main: Pick<Data, "temp">;
+  name: Data["name"];
+  sys: Pick<Data, "country">;
+  weather: Pick<Weather, "description" | "main">[];
+}
 
 export interface WeatherHistoryData {
   city: string;
   createdAt: string;
-  response: {
-    main: {
-      temp: number;
-    };
-    name: string;
-    sys: {
-      country: string;
-    };
-
-    weather: Pick<Weather, "description" | "main">[];
-  };
+  response: HistoryResponse;
 }

@@ -49,6 +49,7 @@ injectGlobal`
     max-width: 1700px;
     padding: 0 16px;
     height: 100vh;
+    overflow-x: hidden;
     margin: 0 auto;
   }
 `;
@@ -58,6 +59,7 @@ export const GlobalStyles = () => {
     <Global
       styles={css`
         body {
+          overflow-x: hidden;
           background: linear-gradient(180deg, #bce8ff 0%, #ffffff 41.26%)
             no-repeat;
         }
