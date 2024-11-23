@@ -25,11 +25,13 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/mongoose": "^10.1.0",
     "@nestjs/platform-express": "^10.4.8",
+    "aws-lambda": "^1.0.7",
     "axios": "^1.7.7",
     "express": "^4.21.1",
     "mongoose": "^8.8.2",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.4.8",
