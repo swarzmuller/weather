@@ -1,4 +1,5 @@
 import {
+  Navigate,
   Route,
   BrowserRouter as Router,
   Routes,
@@ -12,7 +13,7 @@ export const App = () => {
       <GlobalStyles />
       <Router>
         <Routes>
-          <Route path="/" element={<WeatherSearch />} />
+          <Route path="/" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={<WeatherSearch />} />
           <Route path="/list" element={<WeatherHistory />} />
         </Routes>
