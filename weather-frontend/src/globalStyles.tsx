@@ -49,7 +49,6 @@ injectGlobal`
     max-width: 1700px;
     padding: 0 16px;
     height: 100vh;
-    overflow-x: hidden;
     margin: 0 auto;
   }
 `;
